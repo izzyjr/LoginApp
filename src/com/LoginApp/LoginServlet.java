@@ -1,12 +1,13 @@
 package com.LoginApp;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.LoginApp.service.LoginService;
 import com.LoginApp.service.User;
@@ -33,9 +34,9 @@ public class LoginServlet extends HttpServlet {
 		
 		if (results) {
 			User user = loginService.getUserDetails(userId);
-			HttpSession session  = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("success.jsp");
+			request.setAttribute("user", user);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
 			return;
 		}
 		else {

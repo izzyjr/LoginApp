@@ -11,7 +11,7 @@
 	
 	<%
 	
-		User user = (User) session.getAttribute("user");
+		User user = (User) request.getAttribute("user");
 	
 	%>
 	
