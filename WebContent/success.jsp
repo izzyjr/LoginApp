@@ -9,15 +9,15 @@
 <body>
 	<h3>Login Successful</h3>
 	
-<%-- 	<%
-		User user = (User) request.getAttribute("user");
-	%> --%>
+
 	
 	<jsp:useBean id="user" class="com.LoginApp.service.User" scope="request"></jsp:useBean>
 	
-<%-- 	Hello <%= user.getUserName() %>!
- --%>	
-	Hello <jsp:getProperty property="userName" name="user"/>!	
+    Hello <%= user.getUserName() %>!1 <br>
+	
+	Hello <jsp:getProperty property="userName" name="user"/>!2 <br>
+	
+	Hello ${user.userName}!3	
 	
 </body>
 </html>
